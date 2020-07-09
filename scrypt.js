@@ -7,6 +7,8 @@ dateHtml.innerHTML = date;
 let city;
 let lat;
 let lon;
+let win;
+let descriptionWea;
 let weather;
 
 function getCity(){
@@ -24,18 +26,19 @@ function getCity(){
 getCity();
 
 function getWeather(city, lat , lon){
-    console.log(city);
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=1f5698277f2f1f65012e89c68b3d08a4`)
     .then(response => response.json())
     .then(data => {
         console.log(data)
         weather = data.main;
+        wind = data.wind;
+        descriptionWea = data.weather[0].description;
     })
-    .then(() => displayCurent(city, weather));
+    .then(() => displayCurent(city, weather, wind, descriptionWea));
 }
 
-function displayCurent(city, weather){
-    console.log(weather);
+function displayCurent(city, weather, wind, descriptionWea){
+    console.log(weather, wind, descriptionWea);
     let location = document.querySelector("#locationLef");
     location.innerHTML = `Your location is: ${city}`
 
@@ -45,14 +48,14 @@ function displayCurent(city, weather){
     let tempFeel = document.querySelector("#tempFeelLef");
     tempFeel.innerHTML = `Feels like: ${weather.feels_like.toCelsius()}°`;
 
-    let tempMin = document.querySelector("#tempMinLef");
-    tempMin.innerHTML = `Min temperature is: ${weather.temp_min.toCelsius()}°`;
-
-    let tempMax = document.querySelector("#tempMaxLef");
-    tempMax.innerHTML = `Min temperature is: ${weather.temp_max.toCelsius()}°`;
+    let windSpd = document.querySelector("#windSpdLef");
+    windSpd.innerHTML = `Wind speed is: ${wind.speed}m/s`;
 
     let humidity = document.querySelector("#humidityLef");
     humidity.innerHTML = `Humidity is: ${weather.humidity}%`
+
+    let description = document.querySelector("#descriptionLef");
+    description.innerHTML = `We can see a ${descriptionWea}`;
 }
 
 Object.prototype.toCelsius = function(){
