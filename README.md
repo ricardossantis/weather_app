@@ -6,8 +6,10 @@ Shows weather at searched location
 
 Apis
 
-- ipstack
+- ipstack:
+key: b0b877152a35fa48b8f313900f6bb8e8;
 - openWeatherMap
+key: 1f5698277f2f1f65012e89c68b3d08a4
 
 Prototype Design
 
