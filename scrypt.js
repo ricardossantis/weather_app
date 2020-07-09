@@ -5,6 +5,8 @@ let dateHtml = document.querySelector(".date");
 dateHtml.innerHTML = date;
 
 let city;
+let lat;
+let lon;
 let weather;
 
 function getCity(){
@@ -13,12 +15,14 @@ function getCity(){
     .then(data => {
         console.log(data, data.city)
         city = data.city;
+        lat = data.latitude;
+        lon = data.longitude;
     });
 }
 
-function getWeather(city){
+function getWeather(city, lat , lon){
     console.log(city);
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=1f5698277f2f1f65012e89c68b3d08a4`)
+    fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=1f5698277f2f1f65012e89c68b3d08a4`)
     .then(response => response.json())
     .then(data => {
         console.log(data)
@@ -26,20 +30,38 @@ function getWeather(city){
     });
 }
 
-function displayWeather(){
+function displayCurent(city, weather){
+    console.log(weather);
+    let location = document.querySelector(".location");
+    location.innerHTML = `Your location is: ${city}`
 
+    let tempCur = document.querySelector(".tempCur");
+    tempCur.innerHTML = `Current temperature: ${weather.temp.toCelsius()}°`;
+
+    let tempFeel = document.querySelector(".tempFeel");
+    tempFeel.innerHTML = `Feels like: ${weather.feels_like.toCelsius()}°`;
+
+    let tempMin = document.querySelector(".tempMin");
+    tempMin.innerHTML = `Min temperature is: ${weather.temp_min.toCelsius()}°`;
+
+    let tempMax = document.querySelector(".tempMax");
+    tempMax.innerHTML = `Min temperature is: ${weather.temp_max.toCelsius()}°`;
+
+    let humidity = document.querySelector(".humidity");
+    humidity.innerHTML = `Humidity is: ${weather.humidity}%`
 }
 
 Object.prototype.toCelsius = function(){
     cel = this - 273.15;
-    return cel
+    return cel.toFixed(2);
 }
 
 function main(){
     getCity();
-    setTimeout(() => getWeather(city), 600);
+    setTimeout(() => getWeather(city, lat, lon), 800);
+    setTimeout(() => displayCurent(city, weather), 1800);
 }
-kel = 290;
-console.log(kel.toCelsius());
+
+
 
 main();
