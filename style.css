@@ -8,23 +8,71 @@ body{
     display: grid;
     grid-template-areas: 
     'header header'
-    'leftDiv rightDiv'
+    'header header'
+    'content content'
+    'content content'
+    'content content'
+    'content content'
+    'content content'
+    'content content'
+    'content content'    
     'footer footer';
     gap: 30px;
 }
 
-.header {
-    grid-area: header;
+section > div, header, footer {
+    border: 2px solid brown;
 }
 
 .header {
     grid-area: header;
+    position: relative;
 }
 
-.header {
-    grid-area: header;
+.headerTitle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.header {
-    grid-area: header;
+.date {
+    position: absolute;
+    right: 10%;
+    top: 10%;
+}
+
+.content{
+    grid-area: content;
+    display: flex;
+    justify-content: space-around;
+}
+
+.leftDiv{
+    width: 30%;
+    position: relative;
+}
+
+.rightDiv{
+    width: 30%;
+    position: relative;
+}
+
+.divTitle {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%); 
+}
+
+.footer {
+    grid-area: footer; 
+    position: relative;
+}
+
+.footer > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
