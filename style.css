@@ -75,6 +75,14 @@ section > div, header, footer {
     position: relative;
 }
 
+#form {
+    display: flex;
+    position: absolute;
+    top: 9%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
 .divTitle {
     position: absolute;
     top: 5%;

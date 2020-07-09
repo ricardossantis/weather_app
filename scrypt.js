@@ -32,22 +32,22 @@ function getWeather(city, lat , lon){
 
 function displayCurent(city, weather){
     console.log(weather);
-    let location = document.querySelector(".location");
+    let location = document.querySelector("#locationLef");
     location.innerHTML = `Your location is: ${city}`
 
-    let tempCur = document.querySelector(".tempCur");
+    let tempCur = document.querySelector("#tempCurLef");
     tempCur.innerHTML = `Current temperature: ${weather.temp.toCelsius()}°`;
 
-    let tempFeel = document.querySelector(".tempFeel");
+    let tempFeel = document.querySelector("#tempFeelLef");
     tempFeel.innerHTML = `Feels like: ${weather.feels_like.toCelsius()}°`;
 
-    let tempMin = document.querySelector(".tempMin");
+    let tempMin = document.querySelector("#tempMinLef");
     tempMin.innerHTML = `Min temperature is: ${weather.temp_min.toCelsius()}°`;
 
-    let tempMax = document.querySelector(".tempMax");
+    let tempMax = document.querySelector("#tempMaxLef");
     tempMax.innerHTML = `Min temperature is: ${weather.temp_max.toCelsius()}°`;
 
-    let humidity = document.querySelector(".humidity");
+    let humidity = document.querySelector("#humidityLef");
     humidity.innerHTML = `Humidity is: ${weather.humidity}%`
 }
 
@@ -59,9 +59,7 @@ Object.prototype.toCelsius = function(){
 function main(){
     getCity();
     setTimeout(() => getWeather(city, lat, lon), 800);
-    setTimeout(() => displayCurent(city, weather), 1800);
+    setTimeout(() => displayCurent(city, weather), 2200);
 }
-
-
 
 main();
