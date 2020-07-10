@@ -10,6 +10,9 @@ let lon;
 let win;
 let descriptionWea;
 let weather;
+let newWeather;
+let newWind;
+let newDescriptionWea;
 
 function getCity(){
     fetch('https://ipapi.co/json/')
@@ -57,6 +60,46 @@ function displayCurent(city, weather, wind, descriptionWea){
     let description = document.querySelector("#descriptionLef");
     description.innerHTML = `We can see a ${descriptionWea}`;
 }
+
+function getWeatherNewLocation() {
+    let newLocation = document.getElementById("input").value;
+    newLocation = newLocation.capitalize();  
+
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${newLocation}&APPID=1f5698277f2f1f65012e89c68b3d08a4`)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        newWeather = data.main;
+        newWind = data.wind;
+        newDescriptionWea = data.weather[0].description;
+    })
+    .then(() => displayNew(newLocation, newWeather, newWind, newDescriptionWea));
+
+}
+
+function displayNew(city, weather, wind, descriptionWea){
+    console.log(weather, wind, descriptionWea);
+    let newLocation = document.querySelector("#locationRig");
+    newLocation.innerHTML = `Your location is: ${city}`
+
+    let newTempCur = document.querySelector("#tempCurRig");
+    newTempCur.innerHTML = `Current temperature: ${weather.temp.toCelsius()}°`;
+
+    let newTempFeel = document.querySelector("#tempFeelRig");
+    newTempFeel.innerHTML = `Feels like: ${weather.feels_like.toCelsius()}°`;
+
+    let newWindSpd = document.querySelector("#windSpdRig");
+    newWindSpd.innerHTML = `Wind speed is: ${wind.speed}m/s`;
+
+    let newHumidity = document.querySelector("#humidityRig");
+    newHumidity.innerHTML = `Humidity is: ${weather.humidity}%`
+
+    let newDescription = document.querySelector("#descriptionRig");
+    newDescription.innerHTML = `We can see a ${descriptionWea}`;
+}
+
+let button = document.getElementById("button");
+button.addEventListener('click', () => getWeatherNewLocation());
 
 Object.prototype.toCelsius = function(){
     cel = this - 273.15;
