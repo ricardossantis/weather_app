@@ -152,9 +152,11 @@ section > div{
 
     .leftDiv {
         width: 70%;
+        height: 500px;
     }
 
     .rightDiv{
         width: 70%;
+        height: 500px;
     }
 }
