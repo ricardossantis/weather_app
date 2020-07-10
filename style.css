@@ -146,6 +146,10 @@ section > div{
         min-height: 1200px;
     }
 
+    .date {
+        right: 0%;
+    }
+
     .content{
         flex-wrap: wrap;
     }
