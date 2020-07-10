@@ -63,6 +63,9 @@ Object.prototype.toCelsius = function(){
     return cel.toFixed(2);
 }
 
+String.prototype.capitalize = function() {
+    return this.split(" ").map(el => el.charAt(0).toUpperCase() + el.slice(1)).join(" ");
+  }
 
 
 

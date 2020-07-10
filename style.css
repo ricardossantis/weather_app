@@ -1,6 +1,7 @@
 body{
     margin: 0;
     background: linear-gradient(0deg, rgba(183,217,221,1) 0%, rgba(0,178,214,1) 45%, rgba(1,103,124,1) 100%);
+    font-family: 'Bangers', cursive;
 }
 
 #gridContainer {
@@ -60,6 +61,17 @@ section > div{
     background-color: rgba(3, 40, 48, 0.45);
 }
 
+.divTitleLef {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%); 
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    width: 80%;
+    text-align: center;
+}
+
 .statsContainer{
     position: absolute;
     top: 20%;
@@ -73,6 +85,8 @@ section > div{
     justify-content: space-around;
     font-size: 1.2rem;
     background-color: rgba(255, 255, 255, 0.6);
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
 }
 
 .statsContainer > div {
@@ -85,21 +99,23 @@ section > div{
     background-color: rgba(3, 40, 48, 0.45);
 }
 
-#form {
-    display: flex;
-    position: absolute;
-    top: 9%;
-    left: 50%;
-    transform: translate(-50%);
+.divTitleRig {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.7rem;
 }
 
-.divTitle {
+#form {
+    display: flex;
+    flex-wrap: wrap;
     position: absolute;
     top: 5%;
     left: 50%;
-    transform: translate(-50%); 
-    font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.8);
+    transform: translate(-50%);
+    width: 80%;
+    justify-content: center;
 }
 
 .footer {
