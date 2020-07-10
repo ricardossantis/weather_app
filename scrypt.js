@@ -29,6 +29,8 @@ function getCity(){
 getCity();
 
 function getWeather(city, lat , lon){
+    let img = document.querySelector(".img");
+    img.style.visibility = "visible";
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=1f5698277f2f1f65012e89c68b3d08a4`)
     .then(response => response.json())
     .then(data => {
@@ -37,7 +39,8 @@ function getWeather(city, lat , lon){
         wind = data.wind;
         descriptionWea = data.weather[0].description;
     })
-    .then(() => displayCurent(city, weather, wind, descriptionWea));
+    .then(() => displayCurent(city, weather, wind, descriptionWea))
+    .then(() => img.style.visibility = "hidden");
 }
 
 function displayCurent(city, weather, wind, descriptionWea){
@@ -65,6 +68,9 @@ function getWeatherNewLocation() {
     let newLocation = document.getElementById("input").value;
     newLocation = newLocation.capitalize();  
 
+    let img = document.querySelector(".img");
+    img.style.visibility = "visible";
+
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${newLocation}&APPID=1f5698277f2f1f65012e89c68b3d08a4`)
     .then(response => response.json())
     .then(data => {
@@ -73,14 +79,15 @@ function getWeatherNewLocation() {
         newWind = data.wind;
         newDescriptionWea = data.weather[0].description;
     })
-    .then(() => displayNew(newLocation, newWeather, newWind, newDescriptionWea));
+    .then(() => displayNew(newLocation, newWeather, newWind, newDescriptionWea))
+    .then(() => img.style.visibility = "hidden");
 
 }
 
 function displayNew(city, weather, wind, descriptionWea){
     console.log(weather, wind, descriptionWea);
     let newLocation = document.querySelector("#locationRig");
-    newLocation.innerHTML = `Your location is: ${city}`
+    newLocation.innerHTML = `The selected location is: ${city}`
 
     let newTempCur = document.querySelector("#tempCurRig");
     newTempCur.innerHTML = `Current temperature: ${weather.temp.toCelsius()}°`;
