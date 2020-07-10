@@ -14,7 +14,7 @@ img {
 
 #gridContainer {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: grid;
     grid-template-areas: 
     'header header'
@@ -64,7 +64,7 @@ section > div{
 }
 
 .leftDiv{
-    width: 30%;
+    width: 480px;
     position: relative;
     background-color: rgba(3, 40, 48, 0.45);
 }
@@ -102,7 +102,7 @@ section > div{
 }
 
 .rightDiv{
-    width: 30%;
+    width: 480px;
     position: relative;
     background-color: rgba(3, 40, 48, 0.45);
 }
@@ -139,4 +139,22 @@ section > div{
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 1.5rem;
+}
+
+@media (max-width: 800px){
+    #gridContainer {
+        min-height: 1200px;
+    }
+
+    .content{
+        flex-wrap: wrap;
+    }
+
+    .leftDiv {
+        width: 70%;
+    }
+
+    .rightDiv{
+        width: 70%;
+    }
 }

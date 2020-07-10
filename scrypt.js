@@ -72,16 +72,23 @@ function getWeatherNewLocation() {
     img.style.visibility = "visible";
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${newLocation}&APPID=1f5698277f2f1f65012e89c68b3d08a4`)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data)
-        newWeather = data.main;
-        newWind = data.wind;
-        newDescriptionWea = data.weather[0].description;
+    .then(response => {
+        if(response.ok){
+            response.json()
+            .then(data => {
+                console.log(data)
+                newWeather = data.main;
+                newWind = data.wind;
+                newDescriptionWea = data.weather[0].description;
+            })
+            .then(() => displayNew(newLocation, newWeather, newWind, newDescriptionWea))
+            .then(() => img.style.visibility = "hidden");
+        }else {
+            img.style.visibility = "hidden";
+            displayNew("Don't exist, type again");
+            
+        }
     })
-    .then(() => displayNew(newLocation, newWeather, newWind, newDescriptionWea))
-    .then(() => img.style.visibility = "hidden");
-
 }
 
 function displayNew(city, weather, wind, descriptionWea){
