@@ -64,7 +64,7 @@ section > div{
 }
 
 .leftDiv{
-    width: 480px;
+    width: 500px;
     position: relative;
     background-color: rgba(3, 40, 48, 0.45);
 }
@@ -102,7 +102,7 @@ section > div{
 }
 
 .rightDiv{
-    width: 480px;
+    width: 500px;
     position: relative;
     background-color: rgba(3, 40, 48, 0.45);
 }
