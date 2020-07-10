@@ -6,8 +6,8 @@ Shows weather at searched location
 
 Apis
 
-- ipstack:
-key: b0b877152a35fa48b8f313900f6bb8e8;
+- ipapi
+
 - openWeatherMap
 key: 1f5698277f2f1f65012e89c68b3d08a4
 
