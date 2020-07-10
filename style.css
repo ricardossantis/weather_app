@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    background: linear-gradient(0deg, rgba(183,217,221,1) 0%, rgba(0,178,214,1) 45%, rgba(1,103,124,1) 100%);
 }
 
 #gridContainer {
@@ -18,10 +19,9 @@ body{
     'content content'    
     'footer footer';
     gap: 30px;
-    background: linear-gradient(0deg, rgba(183,217,221,1) 0%, rgba(0,178,214,1) 45%, rgba(1,103,124,1) 100%);
 }
 
-section > div, header, footer {
+section > div{
     border: 2px solid rgba(1,103,124,1)
 }
 
@@ -36,6 +36,8 @@ section > div, header, footer {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 2.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: bold;
 }
 
 .date {
@@ -43,6 +45,7 @@ section > div, header, footer {
     right: 10%;
     top: 10%;
     font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .content{
@@ -54,6 +57,7 @@ section > div, header, footer {
 .leftDiv{
     width: 30%;
     position: relative;
+    background-color: rgba(3, 40, 48, 0.45);
 }
 
 .statsContainer{
@@ -68,6 +72,7 @@ section > div, header, footer {
     flex-direction: column;
     justify-content: space-around;
     font-size: 1.2rem;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 .statsContainer > div {
@@ -77,6 +82,7 @@ section > div, header, footer {
 .rightDiv{
     width: 30%;
     position: relative;
+    background-color: rgba(3, 40, 48, 0.45);
 }
 
 #form {
@@ -93,11 +99,14 @@ section > div, header, footer {
     left: 50%;
     transform: translate(-50%); 
     font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .footer {
     grid-area: footer; 
     position: relative;
+    color: rgb(3, 58, 70);
+    
 }
 
 .footer > div {
