@@ -85,8 +85,8 @@ function getWeatherNewLocation() {
             .then(() => img.style.visibility = "hidden");
         }else {
             img.style.visibility = "hidden";
+            cleanStats();
             displayNew("Don't exist, type again");
-            
         }
     })
 }
@@ -139,3 +139,21 @@ function createAutoComplete(){
 }
 
 createAutoComplete();
+
+function cleanStats(){
+    let newTempCur = document.querySelector("#tempCurRig");
+    newTempCur.innerHTML = ""
+
+    let newTempFeel = document.querySelector("#tempFeelRig");
+    newTempFeel.innerHTML = ""
+
+    let newWindSpd = document.querySelector("#windSpdRig");
+    newWindSpd.innerHTML = ""
+
+    let newHumidity = document.querySelector("#humidityRig");
+    newHumidity.innerHTML = ""
+
+    let newDescription = document.querySelector("#descriptionRig");
+    newDescription.innerHTML = "";
+}
+
