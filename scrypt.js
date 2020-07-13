@@ -124,5 +124,18 @@ String.prototype.capitalize = function() {
     return this.split(" ").map(el => el.charAt(0).toUpperCase() + el.slice(1)).join(" ");
   }
 
+function createAutoComplete(){
+    datalist = document.getElementById("cities");
 
+    fetch("./city.list.json")
+        .then(resp => resp.json())
+        .then(data => {
+            for (let i = 0; i < data.length; i++){
+                city = document.createElement("option");
+                city.value = data[i].name;
+                datalist.appendChild(city);
+            }
+        });
+}
 
+createAutoComplete();
