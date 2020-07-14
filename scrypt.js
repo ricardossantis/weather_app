@@ -126,16 +126,12 @@ String.prototype.capitalize = function() {
 
 function createAutoComplete(){
     datalist = document.getElementById("cities");
-
-    fetch("./city.list.json")
-        .then(resp => resp.json())
-        .then(data => {
-            for (let i = 0; i < data.length; i++){
-                city = document.createElement("option");
-                city.value = data[i].name;
-                datalist.appendChild(city);
-            }
-        });
+   
+    for (let i = 0; i < cities.length; i++){
+        city = document.createElement("option");
+        city.value = cities[i].name;
+        datalist.appendChild(city);
+    }
 }
 
 createAutoComplete();
@@ -157,3 +153,25 @@ function cleanStats(){
     newDescription.innerHTML = "";
 }
 
+// function filterCities() {
+
+//     let citiesByName = [];
+
+//     for (let i = 0; i < cities.length; i++){
+//         citiesByName.push({"name": cities[i].name});
+//     }
+//     // downloadObject(citiesByName, "citiesNames.js");
+// }
+
+// filterCities();
+
+// function downloadObject(obj, filename){
+//     var blob = new Blob([JSON.stringify(obj, null, 2)], {type: "application/json;charset=utf-8"}).slice(2,-1);
+//     var url = URL.createObjectURL(blob);
+//     var elem = document.createElement("a");
+//     elem.href = url;
+//     elem.download = filename;
+//     document.body.appendChild(elem);
+//     elem.click();
+//     document.body.removeChild(elem);
+//   }
