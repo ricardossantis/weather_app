@@ -9,15 +9,3 @@ Apis
 - ipapi
 
 - openWeatherMap
-key: 1f5698277f2f1f65012e89c68b3d08a4
-
-Prototype Design
-
-grid - [ Header ]
-       [div][div]
-       [ Footer ]
-
-header => contains title and date time
-left div => contains card with current location and weather info
-rigth div => contains search input and weather placement/info
-footer => Author name
